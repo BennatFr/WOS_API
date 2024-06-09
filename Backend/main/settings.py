@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-bt@v%==6$bkegpcjlv-v@=^)il-8g0c84#^o@=9c5b4dy^0kt5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['151.80.57.7', '127.0.0.1', 'localhost']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'main.middleware.CustomHostValidationMiddleware',
 ]
 
 REST_FRAMEWORK = {
@@ -76,7 +77,7 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-ROOT_URLCONF = 'WOS_API.urls'
+ROOT_URLCONF = 'main.urls'
 CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
@@ -95,7 +96,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'WOS_API.wsgi.application'
+WSGI_APPLICATION = 'main.wsgi.application'
 
 
 # Database
